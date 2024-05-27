@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Create Account {% endblock %}
+
+{% block content %}
+
+<div class="container d-flex justify-content-center align-items-center" style="height: 75vh;">
+    <div class="border p-4 rounded">
+        <h2 class="text-center  mb-4">Sign Up</h2>
+        <form method="POST" style="width: 370px;">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="name" name="name" placeholder="John Doe">
+                <label for="name">Name</label>
+              </div>
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+                <label for="email">Email address</label>
+              </div>
+              <div class="form-floating">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                <label for="password">Password</label>
+              </div>
+              <div class="mt-4 mb-0" style="text-align: center;">
+              <button type="submit" class="btn btn-primary mb-3">Create Account</button>
+              </div>
+              
+        </form>
+        {% if error_message %}
+                <div class="alert alert-danger mt-3">
+                    {{ error_message }}
+                </div>
+            {% endif %}
+    </div>
+</div>
+
+{% endblock %}

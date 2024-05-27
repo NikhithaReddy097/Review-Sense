@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Website{% endblock %}</title>
+    {% block styles %} {% endblock %}
+    <style>
+        .custom-navbar {
+          background-color: #1D88EA; /* Set your desired background color */
+        }
+        .footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <!-- NAVBAR BEGININNG -->
+    <nav class="navbar bg-primary">
+        <div class="container-fluid">
+            <!-- LEFT -->
+            <span class="navbar-brand mb-0 h1"><a class="navbar-brand fs-3 text-light" href="/">Review Sense</a></span>
+
+            <!-- RIGHT -->
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link text-light active" aria-current="page" href="/amazon">Amazon</a> 
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-light active" aria-current="page" href="/youtube">Youtube</a> 
+                  </li>
+                
+                
+              </ul>
+        </div>
+    </nav>
+    <!-- NAVBAR ENDING -->
+
+
+    <!-- CONTENT BEGININNG -->
+    <div class="content"> {% block content %}{% endblock %} </div>
+    <!-- CONTENT ENDING -->
+
+ 
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}Review Sense{% endblock %}
+
+{% block styles %}
+<style>
+
+.about {
+    text-align: center;
+    align-items: center;
+    justify-content: center; /* Center the content horizontally */
+}
+.container{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+h2,p{
+    font-family:'Georgia'
+}
+</style>
+{% endblock %}
+{% block content %}
+    <!-- <div class="container">
+        <div class="content">
+            <div id="text-container">
+                <h3><p id="sentence"></p></h3>
+            </div>
+            <div id="image-container">
+                <img src="{{ url_for('static', filename='summary-banner.jpg') }}" alt="Your Image" width="100%" height="500px">
+            </div>
+        </div>
+    </div> -->
+    <div class="mt-3" id="image-container">
+        <img src="{{ url_for('static', filename='summary-banner.jpg') }}" alt="Your Image" width="100%" height="500px">
+    </div>
+
+
+    <div class="container mt-5">
+        <section class="about">
+            <h2>About Review Sense</h2>
+            <br>
+            <p>Welcome to Review Sense, your one-stop solution for review summarization. At Review Sense, we understand that making informed decisions can be challenging, especially when there's an abundance of reviews to sift through. That's why we've created a powerful solution to help you get to the heart of the matter without the hassle.Our mission is to simplify the review reading process for you. Whether you're considering a new product on Amazon, want to quickly grasp the sentiment of movie reviews, or seek insights from YouTube video comments, Review Sense has you covered.</p>
+        </section>
+    </div>
+    <br><hr>
+    <div class="container text-center mt-4">
+        <div class="row">
+            <h2 class="mb-4">Explore Summaries</h2>
+          <div class="col m-lg-5">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ url_for('static', filename='amazon.jpg') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Amazon</h5>
+                  <p class="card-text">Summarize Amazon product reviews effortlessly.</p>
+                  <a href="/amazon" class="btn btn-primary">Check summary</a>
+                </div>
+              </div>
+          </div>
+
+          
+          <div class="col m-lg-5 mb-6">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ url_for('static', filename='youtube.jpg') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Youtube</h5>
+                  <p class="card-text">Efficiently summarize YouTube video comments.</p>
+                  <a href="/youtube" class="btn btn-primary">Check summary</a>
+                </div>
+              </div>
+          </div>
+
+        </div>
+      </div>
+      <footer class="mt-5" style="background-color: #3b3a3a; color: white; text-align: center; height: 50px;">
+        <p class="mb-0">&copy; 2023 Review Sense</p>
+    </footer>
+
+{% endblock %}

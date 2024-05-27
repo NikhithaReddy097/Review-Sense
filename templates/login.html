@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Login {% endblock %}
+
+{% block content %}
+
+<div class="container d-flex justify-content-center align-items-center" style="height: 75vh;">
+    <div class="border p-4 rounded">
+        <h2 class="text-center  mb-4">Login</h2>
+        <form method="post" style="width: 370px;">
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+                <label for="email">Email address</label>
+              </div>
+              <div class="form-floating">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                <label for="password">Password</label>
+              </div>
+              <div class="mt-4 mb-0" style="text-align: center;">
+              <button type="submit" class="btn btn-primary mb-3">Login</button>
+              <p class="note">New User? <a href="/signup">SIGN UP</a></p>
+              </div>
+              
+        </form>
+        {% if error_message %}
+                <div class="alert alert-danger mt-3">
+                    {{ error_message }}
+                </div>
+            {% endif %}
+    </div>
+</div>
+
+{% endblock %}

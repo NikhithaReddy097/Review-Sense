@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}Ecommerce Reviews{% endblock %}
+
+{% block styles %} 
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        text-align: center;
+    }
+    
+    .container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .container h1 {
+        font-size: 24px;
+    }
+    
+    .input-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+    
+    .input-container label {
+        font-weight: bold;
+    }
+    
+    .input-container input[type="text"] {
+        width: 95%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-3">
+    <h1>Submit a Product Link</h1>
+    <form id="product-form">
+        <div class="input-container">
+            <label for="product-link">Product Link:</label>
+            <input type="text" id="product-link" name="product-link" placeholder="https://www.amazon.com/product" required>
+        </div>
+        <button type="button" class="btn btn-primary mt-2" id="summarize-button">Summarize</button>
+    </form>
+</div>
+<div id="summary-container"> </div>
+
+<script>
+    function appendSummaryToPage(summary) {
+        const summaryDiv = document.createElement('div');
+        summaryDiv.setAttribute('class', 'container mt-5');
+        const summaryParagraph = document.createElement('p');
+        summaryParagraph.textContent = summary;
+        summaryDiv.appendChild(summaryParagraph);
+        document.querySelector('#summary-container').appendChild(summaryDiv);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const summarizeButton = document.querySelector('#summarize-button');
+
+        if (summarizeButton) {
+            summarizeButton.addEventListener('click', function() {
+                const productLink = document.querySelector('#product-link').value;
+                const formData = new FormData();
+                formData.append('link', productLink);
+
+                fetch('/amazon', {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(response => response.text())
+                .then(summary => {
+                    appendSummaryToPage(summary);
+                });
+            });
+        }
+    });
+</script>
+{% endblock %}
